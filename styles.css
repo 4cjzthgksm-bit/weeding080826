@@ -1,0 +1,177 @@
+:root {
+  --bg: #fcf5ee;
+  --accent: #a45c5c;
+  --accent-dark: #7a3e3e;
+  --gold: #c89b4d;
+  --gold-dark: #8d6928;
+  --text: #3f2f2b;
+  --muted: #785e5a;
+  --card: rgba(255, 255, 255, 0.85);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(200, 155, 77, 0.15), transparent 24%),
+    linear-gradient(135deg, #fff8f2 0%, #f6e6dc 100%);
+}
+
+.page-shell {
+  min-height: 100vh;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.hero,
+.card,
+.footer-note {
+  width: min(100%, 760px);
+  border-radius: 24px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 45px rgba(125, 82, 82, 0.12);
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(255,245,242,0.94));
+  padding: 56px 32px;
+  text-align: center;
+  border: 1px solid rgba(200, 155, 77, 0.28);
+  box-shadow: 0 24px 60px rgba(122, 62, 62, 0.16);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(200, 155, 77, 0.16) 0 6px, transparent 7px),
+    linear-gradient(90deg, rgba(200, 155, 77, 0.08) 1px, transparent 1px),
+    linear-gradient(rgba(200, 155, 77, 0.08) 1px, transparent 1px);
+  background-size: 54px 54px, 24px 24px, 24px 24px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.36em;
+  font-size: 0.8rem;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.ornament {
+  margin: 6px 0 18px;
+  display: flex;
+  justify-content: center;
+}
+
+.ornament svg {
+  width: 220px;
+  height: 70px;
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Cormorant Garamond', serif;
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 5vw, 3.7rem);
+  color: var(--accent-dark);
+  margin-bottom: 12px;
+}
+
+.hero-date,
+.hero-location,
+.host-line,
+.host-date,
+.card p,
+.footer-note p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.host-line {
+  margin: 12px 0 4px;
+  font-weight: 700;
+  color: var(--gold-dark);
+}
+
+.host-date {
+  margin: 0 0 8px;
+  font-weight: 600;
+  color: var(--accent-dark);
+}
+
+.button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  background: var(--accent-dark);
+}
+
+.button.secondary {
+  background: transparent;
+  color: var(--accent-dark);
+  border: 1px solid rgba(164, 92, 92, 0.35);
+}
+
+.details {
+  width: min(100%, 760px);
+  display: grid;
+  gap: 16px;
+}
+
+.card {
+  background: var(--card);
+  padding: 24px 28px;
+}
+
+.footer-note {
+  background: rgba(255,255,255,0.95);
+  padding: 24px 28px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .page-shell {
+    padding: 16px;
+  }
+
+  .hero,
+  .card,
+  .footer-note {
+    padding: 24px 18px;
+  }
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="kk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Той шақыру</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root { --deep: #2c213a; --gold: #b58d4a; --cream: #f8efe8; }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+        color: var(--deep);
+        background: linear-gradient(135deg, #fdf8f2 0%, #efe0d0 100%);
+      }
+      .wrap { min-height: 100vh; display: grid; place-items: center; padding: 24px; }
+      .card {
+        width: min(100%, 760px); padding: 40px 30px; border-radius: 24px; background: rgba(255,255,255,0.95);
+        box-shadow: 0 20px 50px rgba(44,33,58,0.16); text-align: center;
+      }
+      h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); margin: 8px 0; color: var(--deep); }
+      .badge { color: var(--gold); text-transform: uppercase; letter-spacing: 0.28em; font-size: 0.8rem; margin-bottom: 8px; }
+      .line { width: 120px; height: 2px; background: var(--gold); margin: 16px auto; }
+      .meta { font-size: 1.02rem; line-height: 1.8; color: #634f4b; }
+      .btn { display: inline-block; margin-top: 22px; padding: 12px 24px; border-radius: 999px; background: var(--deep); color: white; text-decoration: none; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="card">
+        <div class="badge">Тойға шақыру</div>
+        <h1>Есенжан &amp; Жәннәт</h1>
+        <div class="line"></div>
+        <p class="meta">2026 жылы 8 тамыз • 16:00</p>
+        <p class="meta">Той иелері: Қайрат пен Бақыт</p>
+        <p class="meta">«Алтын Бақа» мейрамханасы, Астана</p>
+        <a class="btn" href="index.html">Бастапқы нұсқа</a>
+      </div>
+    </div>
+  </body>
+</html>

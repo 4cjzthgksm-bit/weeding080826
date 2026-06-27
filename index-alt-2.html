@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="kk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Той шақыру</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --cream: #fcf5eb;
+        --brown: #5b3b32;
+        --gold: #b88a3d;
+        --rose: #e8cfc0;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        background: radial-gradient(circle at top, #fff8ef 0%, var(--cream) 55%, #f2e3d1 100%);
+        color: var(--brown);
+      }
+      .wrap { min-height: 100vh; display: grid; place-items: center; padding: 24px; }
+      .card {
+        width: min(100%, 780px); border-radius: 28px; overflow: hidden;
+        box-shadow: 0 22px 55px rgba(91,59,50,0.18); background: white;
+      }
+      .top {
+        padding: 38px 28px 20px; text-align: center; background: linear-gradient(135deg, #fff8f2, #f4e2d1);
+      }
+      .title { font-family: 'Playfair Display', serif; font-size: clamp(2.1rem, 4.2vw, 3.1rem); color: var(--brown); margin: 8px 0; }
+      .subtitle { color: var(--gold); text-transform: uppercase; letter-spacing: 0.3em; font-size: 0.78rem; }
+      .ornament { margin: 12px 0 16px; font-size: 1.2rem; color: var(--gold); }
+      .bottom { padding: 24px 28px 36px; text-align: center; }
+      .meta { font-size: 1.05rem; line-height: 1.8; color: #6d554c; }
+      .btn {
+        display: inline-block; margin-top: 18px; padding: 12px 24px; border-radius: 999px;
+        background: var(--brown); color: white; text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="card">
+        <div class="top">
+          <div class="subtitle">Тойға шақыру</div>
+          <div class="ornament">✦ ✦ ✦</div>
+          <div class="title">Есенжан &amp; Жәннәт</div>
+          <p class="meta">2026 жылы 8 тамыз • 16:00</p>
+          <p class="meta">Той иелері: Қайрат пен Бақыт</p>
+        </div>
+        <div class="bottom">
+          <p class="meta">«Алтын Бақа» мейрамханасы, Астана</p>
+          <a class="btn" href="index.html">Бастапқы нұсқа</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
