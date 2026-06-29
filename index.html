@@ -1,14 +1,358 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Есенжан & Жәннәт</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #fff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    /* МУЗЫКА */
+    .music-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #333;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      z-index: 1000;
+      transition: all 0.3s;
+    }
+    .music-btn:hover {
+      transform: scale(1.1);
+    }
+
+    /* КОНТЕЙНЕР */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ГЕРОЙ */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #f5f5f5 0%, #fff 100%);
+      padding: 20px;
+      position: relative;
+    }
+
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 72px;
+      font-weight: 400;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+
+    .hero-content .names {
+      font-size: 48px;
+      margin: 20px 0;
+      letter-spacing: 1px;
+    }
+
+    .hero-content .separator {
+      font-size: 24px;
+      color: #999;
+      margin: 0 15px;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      color: #666;
+      margin-top: 30px;
+      font-weight: 300;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #999;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-10px); }
+    }
+
+    /* СЕКЦИИ */
+    section {
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      font-weight: 400;
+      margin-bottom: 40px;
+      letter-spacing: 1px;
+    }
+
+    .date-section {
+      background: #f9f9f9;
+    }
+
+    .date-display {
+      font-family: 'Playfair Display', serif;
+      font-size: 56px;
+      font-weight: 400;
+      margin: 40px 0;
+      letter-spacing: 2px;
+    }
+
+    .date-display small {
+      display: block;
+      font-size: 18px;
+      font-weight: 300;
+      margin-top: 10px;
+      letter-spacing: 1px;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 500px;
+      margin: 60px auto;
+    }
+
+    .countdown-item {
+      padding: 30px 10px;
+      border: 1px solid #e0e0e0;
+    }
+
+    .countdown-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .countdown-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #999;
+    }
+
+    .location-section {
+      background: #fff;
+    }
+
+    .location-box {
+      background: #f9f9f9;
+      padding: 50px;
+      margin: 40px auto;
+      max-width: 600px;
+      border: 1px solid #e0e0e0;
+    }
+
+    .location-box p {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
+    .map-placeholder {
+      height: 300px;
+      background: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 30px;
+      border: 2px dashed #ddd;
+      font-size: 14px;
+      color: #999;
+    }
+
+    .contacts-section {
+      background: #f9f9f9;
+    }
+
+    .contact-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 600px;
+      margin: 40px auto;
+    }
+
+    .contact-btn {
+      padding: 18px 30px;
+      border: 1px solid #333;
+      background: transparent;
+      color: #333;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .contact-btn:hover {
+      background: #333;
+      color: white;
+    }
+
+    /* ФУТЕР */
+    footer {
+      padding: 60px 20px;
+      text-align: center;
+      background: #f9f9f9;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .footer-text {
+      font-size: 14px;
+      color: #999;
+      margin-bottom: 20px;
+    }
+
+    .footer-names {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+
+    /* АДАПТИВ */
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: 48px; }
+      .hero-content .names { font-size: 32px; }
+      section h2 { font-size: 32px; }
+      .date-display { font-size: 40px; }
+      .countdown { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .countdown-item { padding: 20px 5px; }
+      .contact-buttons { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- МУЗЫКА -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="https://www.dropbox.com/scl/fi/ydpg8fgzhidrfq7ackeqm/zhas_zhubailar_second__nurbol_zhorabekov.mp3?rlkey=cnpeqc906mv1i2q1eg8q869ta&st=op90a8xw&raw=1" type="audio/mp3" />
+  </audio>
+  <button class="music-btn" id="musicBtn">🎵</button>
+
+  <!-- ГЕРОЙ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>ҮЙЛЕНУ</h1>
+        <div class="names">
+          <span>Есенжан</span>
+          <span class="separator">&</span>
+          <span>Жәннәт</span>
+        </div>
+        <p>07 августа 2026</p>
+      </div>
+      <div class="scroll-indicator">Төмене ауысыңыз</div>
+    </div>
+  </section>
+
+  <!-- УАҚЫТ -->
+  <section class="date-section">
+    <div class="container">
+      <h2>Той күні</h2>
+      <div class="date-display">
+        07.08.2026
+        <small>17:00</small>
+      </div>
+
+      <div class="countdown" id="timer">
+        <div class="countdown-item">
+          <span class="countdown-num" id="days">00</span>
+          <span class="countdown-label">Күн</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-num" id="hours">00</span>
+          <span class="countdown-label">Сағат</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-num" id="minutes">00</span>
+          <span class="countdown-label">Минут</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-num" id="seconds">00</span>
+          <span class="countdown-label">Секунд</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- МЕКЕН-ЖАЙ -->
+  <section class="location-section">
+    <div class="container">
+      <h2>Мекен-жайы</h2>
+      <div class="location-box">
+        <p>Той өтетін салтанатты сарай мен нақты мекен-жайы жуық арада нақтыланып, осы жерде көрсетіледі.</p>
+        <div class="map-placeholder">
+          📍 Мекен-жай анықталуда
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- КОНТАКТЫ -->
+  <section class="contacts-section">
+    <div class="container">
+      <h2>Бізге хабарласыңыз</h2>
+      <div class="contact-buttons">
+        <a href="https://wa.me/87054287487" class="contact-btn" target="_blank">WhatsApp</a>
+        <a href="tel:+87054287487" class="contact-btn">Қоңырау</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ФУТЕР -->
+  <footer>
+    <p class="footer-text">Той иелері:</p>
+    <p class="footer-names">Қайрат & Бақыт</p>
+  </footer>
+
   <script>
-    // Музыка басқару
-    const preloader = document.getElementById('preloader');
-    const openBtn = document.getElementById('openBtn');
+    // Музыка
     const music = document.getElementById('bgMusic');
     const musicBtn = document.getElementById('musicBtn');
 
     function toggleMusic() {
       if (music.paused) {
-        music.currentTime = 21; // Начинаем с 21 секунды
-        music.play().catch(err => console.log("Музыка қосылмады:", err));
+        music.currentTime = 21;
+        music.play().catch(err => console.log("Ошибка:", err));
         musicBtn.textContent = '⏸';
       } else {
         music.pause();
@@ -18,18 +362,13 @@
 
     musicBtn.addEventListener('click', toggleMusic);
 
-    openBtn.addEventListener('click', () => {
-      preloader.classList.add('hidden');
-      music.currentTime = 21; // Начинаем с 21 секунды при открытии
-      music.play().catch(err => console.log("Аўтоматты аўу сәтсіз болды:", err));
-      musicBtn.textContent = '⏸';
-    });
-
-    // Таймер — 7 август 2026
+    // Таймер
     const targetDate = new Date('August 7, 2026 17:00:00').getTime();
+    
     function updateCountdown() {
       const now = new Date().getTime();
       const diff = targetDate - now;
+      
       if (diff <= 0) return;
       
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -42,17 +381,10 @@
       document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
       document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
     }
+
     updateCountdown();
     setInterval(updateCountdown, 1000);
-
-    // Плавное появление блоков при прокрутке
-    const reveals = document.querySelectorAll('.fade-in-section');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-    reveals.forEach(r => observer.observe(r));
   </script>
+
+</body>
+</html>
